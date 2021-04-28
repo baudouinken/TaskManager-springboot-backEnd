@@ -58,7 +58,6 @@ public class EmployeeIT extends ItBase {
 
 		Employee create = buildEmployee(chef);
 		
-		
 		UUID id = UUID.fromString(given()
                 .contentType(ContentType.JSON)
                 .body(create)
@@ -82,6 +81,37 @@ public class EmployeeIT extends ItBase {
 		assertThat(create.getEmployeeChef().getDepartment(), is(employee.getEmployeeChef().getDepartment()));
 		assertThat(create.getEmployeeChef().getPhone(), is(employee.getEmployeeChef().getPhone()));
 		assertThat(create.getEmployeeChef().getImageUrl(), is(employee.getEmployeeChef().getImageUrl()));
+	}
+	
+	@Test
+	public void update() {
+		Chef chef = buildChef();
+		chef = chefRepo.save(chef);
+
+		Employee update = buildEmployee(chef);	
+		
+		given()
+                .contentType(ContentType.JSON)
+                .body(update)
+                .log().body()
+                .put("/employee/{id}", employee1.getEmployeeId())
+                .then()
+                .log().body()
+                .statusCode(200);
+
+		Employee employee = employeeRepo.findById(employee1.getEmployeeId()).get();
+
+		assertThat(update.getName(), is(employee.getName()));
+		assertThat(update.getEmail(), is(employee.getEmail()));
+		assertThat(update.getJobTitle(), is(employee.getJobTitle()));
+		assertThat(update.getPhone(), is(employee.getPhone()));
+		assertThat(update.getImageUrl(), is(employee.getImageUrl()));
+		assertThat(update.getEmployeeChef().getChefId(), is(employee.getEmployeeChef().getChefId()));
+		assertThat(update.getEmployeeChef().getName(), is(employee.getEmployeeChef().getName()));
+		assertThat(update.getEmployeeChef().getEmail(), is(employee.getEmployeeChef().getEmail()));
+		assertThat(update.getEmployeeChef().getDepartment(), is(employee.getEmployeeChef().getDepartment()));
+		assertThat(update.getEmployeeChef().getPhone(), is(employee.getEmployeeChef().getPhone()));
+		assertThat(update.getEmployeeChef().getImageUrl(), is(employee.getEmployeeChef().getImageUrl()));
 	}
 
 }

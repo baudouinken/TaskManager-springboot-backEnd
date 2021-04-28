@@ -43,9 +43,17 @@ public class ChefService {
 	public ChefReadTO getChef(UUID id) {
 		return Chef2ChefReadTO.apply(findChef(id));
 	}
+	
+	public ChefReadTO getChefByAuthId(UUID id) {
+		return Chef2ChefReadTO.apply(findChefByAuthId(id));
+	}
 
 	public Chef findChef(UUID id) {
 		return chefrepo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+	}
+	
+	public Chef findChefByAuthId(UUID id) {
+		return chefrepo.findByAuthId(id);
 	}
 
 	public List<ChefListReadTO> findAll() {

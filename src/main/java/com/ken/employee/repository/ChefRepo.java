@@ -9,5 +9,7 @@ import com.ken.employee.model.Chef;
 
 @Repository
 public interface ChefRepo extends JpaRepository<Chef, UUID> {
+	
+	Chef findByAuthId(UUID id);
 
 }

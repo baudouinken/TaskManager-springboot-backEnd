@@ -4,19 +4,21 @@ import java.util.UUID;
 
 public class ChefListReadTO {
 
-	private UUID chefId;
+	protected UUID chefId;
 
-	private String name;
+	protected String name;
 
-	private String email;
+	protected String email;
 
-	private String department;
+	protected String department;
 
-	private String phone;
+	protected String phone;
 
-	private String imageUrl;
+	protected String imageUrl;
 
-	private String code;
+	protected String code;
+
+	protected UUID authId;
 
 	public UUID getChefId() {
 		return chefId;
@@ -72,6 +74,14 @@ public class ChefListReadTO {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public UUID getAuthId() {
+		return authId;
+	}
+
+	public void setAuthId(UUID authId) {
+		this.authId = authId;
 	}
 
 }

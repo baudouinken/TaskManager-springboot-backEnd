@@ -17,6 +17,7 @@ public class Employee2EmployeeReadTO {
 		out.setImageUrl(in.getImageUrl());
 		out.setCode(in.getCode());
 		out.setEmployeeChef(in.getEmployeeChef());
+		out.setAuthId(in.getAuthId());
 		out.setTasks((in.getTasks() != null) ? Task2TaskListReadTO.apply(new ArrayList<>(in.getTasks())) : null);
 
 		return out;

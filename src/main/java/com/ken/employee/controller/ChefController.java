@@ -45,6 +45,12 @@ public class ChefController {
 	public ChefReadTO getAllChefById(@ApiParam(name = "ChefId", value = "get One Chef") @PathVariable UUID id) {
 		return chefService.getChef(id);
 	}
+	
+	@ApiOperation("Get One Chef")
+	@GetMapping("/auth/{id}")
+	public ChefReadTO getChefByAuthId(@ApiParam(name = "AuthId", value = "get One Chef") @PathVariable UUID id) {
+		return chefService.getChefByAuthId(id);
+	}
 
 	@ApiOperation("Add One Chef")
 	@PostMapping("")

@@ -47,6 +47,13 @@ public class EmployeeController {
 			@ApiParam(name = "Id", value = "Id of the employee") @PathVariable UUID id) {
 		return employeeService.getEmployee(id);
 	}
+	
+	@ApiOperation("Get One Employee")
+	@GetMapping("auth/{id}")
+	public EmployeeReadTO getEmployeeByAuthId(
+			@ApiParam(name = "AuthId", value = "AuthId of the employee") @PathVariable UUID id) {
+		return employeeService.getEmployeeByAuthId(id);
+	}
 
 	@ApiOperation("Add One Employee")
 	@PostMapping("")
@@ -75,10 +82,11 @@ public class EmployeeController {
 	}
 
 	@ApiOperation("Update one Employee")
-	@PutMapping("")
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<EmployeeReadTO> updateEmployee(
+			@ApiParam(name = "ID", value = "Employee Id") @PathVariable UUID id,
 			@ApiParam(name = "Employee", value = "New the employee") @RequestBody Employee employee) {
-		EmployeeReadTO newEmployee = employeeService.updateEmployee(employee);
+		EmployeeReadTO newEmployee = employeeService.updateEmployee(id, employee);
 		return new ResponseEntity<>(newEmployee, HttpStatus.OK);
 	}
 

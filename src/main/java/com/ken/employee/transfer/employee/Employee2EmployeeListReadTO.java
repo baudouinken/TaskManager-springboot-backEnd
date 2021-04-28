@@ -19,6 +19,7 @@ public class Employee2EmployeeListReadTO {
 		out.setImageUrl(in.getImageUrl());
 		out.setCode(in.getCode());
 		out.setEmployeeChef(in.getEmployeeChef());
+		out.setAuthId(in.getAuthId());
 
 		return out;
 	}

@@ -22,6 +22,8 @@ public class EmployeeListReadTO {
 
 	protected Chef employeeChef;
 
+	protected UUID authId;
+
 	public UUID getEmployeeId() {
 		return employeeId;
 	}
@@ -84,6 +86,14 @@ public class EmployeeListReadTO {
 
 	public void setEmployeeChef(Chef employeeChef) {
 		this.employeeChef = employeeChef;
+	}
+
+	public UUID getAuthId() {
+		return authId;
+	}
+
+	public void setAuthId(UUID authId) {
+		this.authId = authId;
 	}
 
 }

@@ -18,6 +18,7 @@ public class Chef2ChefReadTO {
 		out.setPhone(in.getPhone());
 		out.setImageUrl(in.getImageUrl());
 		out.setCode(in.getCode());
+		out.setAuthId(in.getAuthId());
 		out.setTasks((in.getTasks() != null) ? Task2TaskListReadTO.apply(new ArrayList<>(in.getTasks())) : null);
 		out.setEmployees(
 				(in.getEmployees() != null) ? Employee2EmployeeListReadTO.apply(new ArrayList<>(in.getEmployees()))

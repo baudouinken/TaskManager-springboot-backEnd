@@ -41,17 +41,34 @@ public class EmployeeService {
 	public EmployeeReadTO getEmployee(UUID id) {
 		return Employee2EmployeeReadTO.apply(findEmployee(id));
 	}
+	
+	public EmployeeReadTO getEmployeeByAuthId(UUID id) {
+		return Employee2EmployeeReadTO.apply(findEmployeeByAuthId(id));
+	}
 
 	public Employee findEmployee(UUID id) {
 		return employeerepo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+	}
+	
+	public Employee findEmployeeByAuthId(UUID id) {
+		return employeerepo.findByAuthId(id);
 	}
 
 	public List<EmployeeListReadTO> findAll() {
 		return Employee2EmployeeListReadTO.apply(employeerepo.findAll());
 	}
 
-	public EmployeeReadTO updateEmployee(Employee employee) {
-		return Employee2EmployeeReadTO.apply(employeerepo.save(employee));
+	public EmployeeReadTO updateEmployee( UUID id, Employee employee) {
+		Employee update = findEmployee(id);
+		update.setName(employee.getName());
+		update.setCode(employee.getCode());
+		update.setEmail(employee.getEmail());
+		update.setEmployeeChef(employee.getEmployeeChef());
+		update.setImageUrl(employee.getImageUrl());
+		update.setJobTitle(employee.getJobTitle());
+		update.setPhone(employee.getPhone());
+		update.setTasks(employee.getTasks());
+		return Employee2EmployeeReadTO.apply(employeerepo.save(update));
 	}
 
 	public ResponseEntity<?> deleteEmployee(UUID id) {

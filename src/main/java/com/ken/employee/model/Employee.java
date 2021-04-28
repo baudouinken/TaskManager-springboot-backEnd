@@ -43,6 +43,8 @@ public class Employee implements Serializable {
 
 	private String code;
 
+	private UUID authId;
+
 	@OneToMany(mappedBy = "attribuatedEmployee")
 	private List<Task> tasks = new ArrayList<Task>();
 
@@ -132,6 +134,14 @@ public class Employee implements Serializable {
 
 	public void setEmployeeChef(Chef employeeChef) {
 		this.employeeChef = employeeChef;
+	}
+
+	public UUID getAuthId() {
+		return authId;
+	}
+
+	public void setAuthId(UUID authId) {
+		this.authId = authId;
 	}
 
 }

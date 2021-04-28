@@ -10,4 +10,6 @@ import com.ken.employee.model.Employee;
 @Repository
 public interface EmployeeRepo extends JpaRepository<Employee, UUID> {
 
+	Employee findByAuthId(UUID id);
+
 }

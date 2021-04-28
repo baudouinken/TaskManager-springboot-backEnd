@@ -17,6 +17,7 @@ public class Chef2ChefListReadTO {
 		out.setPhone(in.getPhone());
 		out.setImageUrl(in.getImageUrl());
 		out.setCode(in.getCode());
+		out.setAuthId(in.getAuthId());
 
 		return out;
 	}

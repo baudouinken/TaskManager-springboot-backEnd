@@ -42,6 +42,8 @@ public class Chef implements Serializable {
 
 	private String code;
 
+	private UUID authId;
+
 	@ManyToMany(mappedBy = "taskChefs")
 	private List<Task> tasks = new ArrayList<Task>();
 
@@ -130,6 +132,14 @@ public class Chef implements Serializable {
 
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
+	}
+
+	public UUID getAuthId() {
+		return authId;
+	}
+
+	public void setAuthId(UUID authId) {
+		this.authId = authId;
 	}
 
 }
