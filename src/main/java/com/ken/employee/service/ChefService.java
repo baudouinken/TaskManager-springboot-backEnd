@@ -60,8 +60,8 @@ public class ChefService {
 		return Chef2ChefListReadTO.apply(chefrepo.findAll());
 	}
 
-	public Chef updateChef(Chef chef) {
-		return chefrepo.save(chef);
+	public ChefReadTO updateChef(Chef chef) {
+		return Chef2ChefReadTO.apply(chefrepo.save(chef));
 	}
 
 	public ResponseEntity<?> deleteChef(UUID id) {
