@@ -35,9 +35,9 @@ public class Chef implements Serializable {
 	private String email;
 	@NotBlank
 	private String department;
-	@NotBlank
+	
 	private String phone;
-	@NotBlank
+	
 	private String imageUrl;
 
 	private String code;

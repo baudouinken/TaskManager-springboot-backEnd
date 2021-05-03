@@ -36,9 +36,9 @@ public class Employee implements Serializable {
 	private String email;
 	@NotBlank
 	private String jobTitle;
-	@NotBlank
+	
 	private String phone;
-	@NotBlank
+	
 	private String imageUrl;
 
 	private String code;
