@@ -97,8 +97,8 @@ public class ChefController {
 
 	@ApiOperation("Update Chef")
 	@PutMapping("")
-	public ResponseEntity<Chef> updateChef(@ApiParam(name = "Chef", value = "new Chef") @RequestBody Chef chef) {
-		Chef newChef = chefService.updateChef(chef);
+	public ResponseEntity<ChefReadTO> updateChef(@ApiParam(name = "Chef", value = "new Chef") @RequestBody Chef chef) {
+		ChefReadTO newChef = chefService.updateChef(chef);
 		return new ResponseEntity<>(newChef, HttpStatus.OK);
 	}
 
