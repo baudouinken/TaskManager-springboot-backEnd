@@ -1,10 +1,22 @@
 # tastManager-springboot-backEnd
-Manage Task, Employee and Chefs
 
-Springboot
+Manage Task, Employee and Chefs:
+ - create task as chef
+ - assign task as chef to employee
+ - assign task as chef to chef
+ - update tast as chef
+ - delete task as chef
 
-Java 1.8
+Framework:
+ - springboot
 
-Maven
+Tests:
+- integration tests with JUnit5
 
-Github CI and -> deployed on Heroku
+Builded with:
+ - Maven
+CI:
+ - Github CI
+
+Deployement:
+ - Heroku
